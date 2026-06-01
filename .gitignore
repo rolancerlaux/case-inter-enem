@@ -218,7 +218,11 @@ __marimo__/
 .streamlit/secrets.toml
 
 # Large data files
-data/
+data/DADOS/
+data/DICIONÁRIO/
+
+# Generated artifacts (regenerate via notebooks/01_eda.ipynb)
+reports/base_analitica.parquet
 
 # macOS
 .DS_Store
