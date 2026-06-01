@@ -1,0 +1,191 @@
+{
+  "lr_ses_only": {
+    "pr_auc_cv": 0.2965,
+    "pr_auc_cv_std": 0.0019,
+    "pr_auc_test": 0.3008,
+    "brier_test": 0.0471
+  },
+  "lr_full": {
+    "pr_auc_cv": 0.3089,
+    "pr_auc_cv_std": 0.001,
+    "pr_auc_test": 0.3125,
+    "brier_test": 0.0465,
+    "delta_pr_auc": 0.0117,
+    "partial_coef_escola_privada": 0.3043,
+    "calibration_applied": false,
+    "brier_after_calibration": null
+  },
+  "hgb": {
+    "pr_auc_cv": 0.3214,
+    "pr_auc_cv_std": 0.0019,
+    "pr_auc_test": 0.3248,
+    "brier_test": 0.0458
+  },
+  "lift_top20": 3.757,
+  "threshold_f1_optimal": 0.199,
+  "scenarios": {
+    "low_ses_publica": 0.0064,
+    "low_ses_privada": 0.0168,
+    "mid_ses_publica": 0.0115,
+    "mid_ses_privada": 0.03,
+    "high_ses_publica": 0.0467,
+    "high_ses_privada": 0.1148
+  },
+  "scenarios_profile_counts": {
+    "low_ses": {
+      "q006_num": 1,
+      "n_alunos": 566452,
+      "pct_base": 0.2946
+    },
+    "mid_ses": {
+      "q006_num": 2,
+      "n_alunos": 314306,
+      "pct_base": 0.1635
+    },
+    "high_ses": {
+      "q006_num": 5,
+      "n_alunos": 91906,
+      "pct_base": 0.0478
+    }
+  },
+  "sensitivity": {
+    "threshold_680": {
+      "delta_pr_auc": 0.013,
+      "top_feature": "Renda familiar"
+    },
+    "threshold_720": {
+      "delta_pr_auc": 0.0108,
+      "top_feature": "Concluindo EM em 2023"
+    }
+  },
+  "top10_features": [
+    {
+      "feature": "Q006_num",
+      "feature_pt": "Renda familiar",
+      "importancia": 0.1016
+    },
+    {
+      "feature": "concluindo_ano",
+      "feature_pt": "Concluindo EM em 2023",
+      "importancia": 0.04647
+    },
+    {
+      "feature": "Q002_num",
+      "feature_pt": "Escolaridade da mae",
+      "importancia": 0.03095
+    },
+    {
+      "feature": "Q001_num",
+      "feature_pt": "Escolaridade do pai",
+      "importancia": 0.02529
+    },
+    {
+      "feature": "Q024_num",
+      "feature_pt": "Computador em casa",
+      "importancia": 0.01963
+    },
+    {
+      "feature": "nao_branca",
+      "feature_pt": "Raca (nao-branca)",
+      "importancia": 0.01739
+    },
+    {
+      "feature": "escola_privada",
+      "feature_pt": "Escola privada (autodeclarada)",
+      "importancia": 0.01273
+    },
+    {
+      "feature": "escola_nao_resp",
+      "feature_pt": "Escola nao declarada",
+      "importancia": 0.00979
+    },
+    {
+      "feature": "uf_CE",
+      "feature_pt": "UF CE",
+      "importancia": 0.00598
+    },
+    {
+      "feature": "uf_SP",
+      "feature_pt": "UF SP",
+      "importancia": 0.00347
+    }
+  ],
+  "escola_effect": {
+    "partial_coef_escola_privada": 0.3043,
+    "delta_pr_auc_escola_uf": 0.0117,
+    "ame_pp": 5.44,
+    "ame_ci_lower_pp": 5.43,
+    "ame_ci_upper_pp": 5.46,
+    "interpretacao": "escola_privada derivada de TP_ESCOLA (autodeclarada na inscricao). ame_pp = Average Marginal Effect: media de [P(escola=privada|X_i) - P(escola=publica|X_i)] sobre todos os alunos do conjunto de teste (n~431k). IC 95% por bootstrap com 500 iteracoes (resampling do vetor delta). Estimativa observacional, nao causal — viés de selecao esperado. Modelos LR treinados sem class_weight (class_weight=None): predict_proba representa probabilidade de frequencia real."
+  },
+  "model_health": {
+    "prob_std_hgb": 0.097,
+    "recall_minority_hgb": 0.495,
+    "predicted_positive_count_hgb": 34559,
+    "total_test_rows": 384562,
+    "alerts": []
+  },
+  "features_policy": {
+    "disponivel_na_base": [
+      "concluindo_ano",
+      "Q022_num"
+    ],
+    "nota_eja": "TP_ENSINO nao disponivel.",
+    "nota_q023": "Q023 = telefone fixo (dicionario ENEM 2023), NAO escola declarada. CLAUDE.md tem descricao incorreta desta variavel."
+  },
+  "cenario_personagem": {
+    "descricao": "Renda faixa C (~R$1.320-1.980/mes, ~1 SM), mae com EM completo (Q002=G), sem computador (Q024=A), sem internet (Q025=A), concluindo EM no ano do ENEM. Modelo LR-Full (SES + escola + UF). UF = categoria de referencia.",
+    "escola_publica_pct": 0.42,
+    "escola_privada_pct": 1.12,
+    "delta_pp": 0.69,
+    "razao": 2.63
+  },
+  "race_gender_stats": {
+    "raca": [
+      {
+        "label": "Branca",
+        "media": 574.4,
+        "p700_pct": 9.79,
+        "n": 810416
+      },
+      {
+        "label": "Preta",
+        "media": 515.3,
+        "p700_pct": 1.84,
+        "n": 239028
+      },
+      {
+        "label": "Parda",
+        "media": 524.0,
+        "p700_pct": 3.15,
+        "n": 810094
+      },
+      {
+        "label": "Amarela",
+        "media": 538.8,
+        "p700_pct": 7.69,
+        "n": 30293
+      },
+      {
+        "label": "Indigena",
+        "media": 480.1,
+        "p700_pct": 0.67,
+        "n": 10889
+      }
+    ],
+    "genero": [
+      {
+        "label": "Feminino",
+        "media": 541.8,
+        "p700_pct": 5.49,
+        "n": 1163281
+      },
+      {
+        "label": "Masculino",
+        "media": 548.4,
+        "p700_pct": 6.51,
+        "n": 759527
+      }
+    ]
+  }
+}
